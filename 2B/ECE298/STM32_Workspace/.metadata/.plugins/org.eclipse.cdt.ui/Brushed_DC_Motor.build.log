@@ -1,0 +1,10 @@
+15:46:52 **** Incremental Build of configuration Debug for project Brushed_DC_Motor ****
+make -j4 all 
+arm-none-eabi-size   Brushed_DC_Motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15036	    112	   2048	  17196	   432c	Brushed_DC_Motor.elf
+Finished building: default.size.stdout
+ 
+
+15:46:53 Build Finished. 0 errors, 0 warnings. (took 529ms)
+

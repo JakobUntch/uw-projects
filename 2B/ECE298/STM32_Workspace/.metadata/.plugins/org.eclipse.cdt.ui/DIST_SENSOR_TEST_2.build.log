@@ -1,0 +1,40 @@
+21:53:02 **** Incremental Build of configuration Debug for project DIST_SENSOR_TEST_2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:131:11: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  131 |           sprintf((char*) txd_msg_buffer,
+      |           ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:131:11: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  131 |           sprintf((char*) txd_msg_buffer,
+      |           ^~~~~~~
+../Core/Src/main.c:131:11: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:133:60: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  133 |                 HAL_UART_Transmit(&huart6, txd_msg_buffer, strlen((char*) txd_msg_buffer),
+      |                                                            ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:133:60: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  133 |                 HAL_UART_Transmit(&huart6, txd_msg_buffer, strlen((char*) txd_msg_buffer),
+      |                                                            ^~~~~~
+../Core/Src/main.c:133:60: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "DIST_SENSOR_TEST_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"N:\ECE298\STM32_Workspace\DIST_SENSOR_TEST_2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DIST_SENSOR_TEST_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DIST_SENSOR_TEST_2.elf
+ 
+arm-none-eabi-size   DIST_SENSOR_TEST_2.elf 
+arm-none-eabi-objdump -h -S  DIST_SENSOR_TEST_2.elf  > "DIST_SENSOR_TEST_2.list"
+   text	   data	    bss	    dec	    hex	filename
+  15932	    100	   2116	  18148	   46e4	DIST_SENSOR_TEST_2.elf
+Finished building: default.size.stdout
+ 
+Finished building: DIST_SENSOR_TEST_2.list
+ 
+
+21:53:04 Build Finished. 0 errors, 4 warnings. (took 1s.989ms)
+

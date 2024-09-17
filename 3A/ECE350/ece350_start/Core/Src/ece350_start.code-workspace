@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "group44-lab",
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"queue.h": "c",
+			"array": "c",
+			"string_view": "c",
+			"initializer_list": "c",
+			"ranges": "c",
+			"utility": "c",
+			"string.h": "c"
+		}
+	}
+}

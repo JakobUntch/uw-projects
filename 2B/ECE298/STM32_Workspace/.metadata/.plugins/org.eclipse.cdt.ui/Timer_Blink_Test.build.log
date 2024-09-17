@@ -1,0 +1,10 @@
+16:08:48 **** Incremental Build of configuration Debug for project Timer_Blink_Test ****
+make -j4 all 
+arm-none-eabi-size   Timer_Blink_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10168	     20	   1708	  11896	   2e78	Timer_Blink_Test.elf
+Finished building: default.size.stdout
+ 
+
+16:08:48 Build Finished. 0 errors, 0 warnings. (took 411ms)
+

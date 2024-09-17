@@ -1,0 +1,10 @@
+22:51:24 **** Incremental Build of configuration Debug for project Embedded_Project ****
+make -j4 all 
+arm-none-eabi-size   Embedded_Project.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34080	    100	   2428	  36608	   8f00	Embedded_Project.elf
+Finished building: default.size.stdout
+ 
+
+22:51:25 Build Finished. 0 errors, 0 warnings. (took 571ms)
+

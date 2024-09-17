@@ -1,0 +1,6 @@
+../Core/Src/Queue.c:4:8:create_queue	1
+../Core/Src/Queue.c:12:6:enqueue	3
+../Core/Src/Queue.c:28:7:dequeue	3
+../Core/Src/Queue.c:43:6:is_empty	1
+../Core/Src/Queue.c:47:6:is_full	1
+../Core/Src/Queue.c:51:6:free_queue	2

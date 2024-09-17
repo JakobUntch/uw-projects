@@ -1,0 +1,47 @@
+1. SETUP Mode
+	- Entered by resetting NUCLEO
+	- GREEN LED is OFF
+	- Pump Motor is off
+	- Terminal Displays "SETUP MODE"
+	- Get inputs for Inlet, Zones 1-3
+		0 is manual, 1 is 60, 2 is 80, 3 is 99
+		ONLY 1 ZONE/INLET CAN BE CONNECTED WITH MOTOR RUNNING EACH HOUR
+	- Get inputs for current, inlet, zone 1-3 wall clock
+		expressed in 24hr
+		needs to be scaled down (2.4 minutes = 24hr, 0.1 min = 1hr); use MCU Timer to drive variables
+		NO OVERLAP OF WALL CLOCK ENTRIES (EXCEPT FOR STOP TIME BEING SAME AS START TIME)
+	- Flash the GREEN LED, wait for BLUE B1 button press and release
+	
+2. RUN Mode
+	- GREEN LED is ON
+	- Potentiometer sets the RPM of the motor for any zone/inlet (if manual)
+	- Bi-Directional UART required (for displaying info and obtaining it)
+	- Parse wall clock times entered to determine order
+	- Motor driven from PWM signal (RPM controlled by PWM pulse width)
+		1. 50,000 gal, 25 feet per day
+		2. 30,000 gal, 50 feet per day
+		3. 14,000 gal, 60 feet per day
+		INLET: 94000 gallon capacity, 40 feet (NEED TO AVOID OVERFILLING)
+	- Water reservoir gets filled overnight, then divides it out during the day
+	- Selection of zone connection done by Servo; LED will light up as colour
+		1. RED: Zone 1
+		2. GREEN: Zone 2
+		3. BLUE: Zone 3
+		INLET: PURPLE: Inlet (dont need servo for this)
+	- Direction of water from pump is opposite of water from inlet
+	- Need to calculate and print the following values (All on one line):
+		1) Wall Clock Time
+		2) Zone/Inlet
+		3) Moter Speed %PWM
+		4) Motor RPM (must be based on revolutions per real-time minute, NOT SCALED INTERVALS!)
+		5) Water Reservoir Depth
+	- Lines are printed every wall clock hour OR when a SPECIAL EVENT occurs
+	- Water depth is printed on the timer board in percentage terms
+	- When water level is higher in resevoir, distance measurement will be lower!
+	- Water depth is deermined using the distance sensor
+		a) SPECIAL EVENT: Water reservoir reaches ZERO depth (depth: 2cm to 100cm)
+			- turn off motor
+			- update terminal to indicate reservoir is empty
+			- display RGB sequence
+			- GREEN LED on board turned off
+			- system stops and waits for reset
